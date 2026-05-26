@@ -1,12 +1,14 @@
-# ansible
+# Ansible
 ****************
 3 Ubuntu machines, 1 Master &amp; 2 Subs, being managed by using Ansible playbooks
 ****************
 
 This project was made with the objective of improving the knowledge with:
-- VMWare (Virtualization)
-- Ubuntu (Configuration & Administration)
-- Ansible (Automation)
+- Linux System Administration
+- Infrastructure Automation with Ansible
+- Virtualization using VMware
+- Networking and SSH configuration
+- Server provisioning and hardening
 
 ****************
 
@@ -15,6 +17,7 @@ These 3 VMs were created in order to serve the porpose of one "Control Node" (CD
 
 <img width="534" height="270" alt="image" src="https://github.com/user-attachments/assets/e475ad85-992d-4618-ab2d-fec1c8f2a90e" />
 
+# Initial setup
 # Enable SSH on both MNs, and edit user permissions.
 
 ## Enabling SSH
@@ -84,7 +87,7 @@ What to do:
 Objectives: Basic Playbook structure, YAML syntax, the apt and user modules, and the concept of idempotency.
 
 
-Challenge 3: Setting Up a Web Server (Variables and Facts)
+## Challenge 3: Setting Up a Web Server (Variables and Facts)
 
 What to do: 
 
@@ -99,7 +102,7 @@ What to do:
 Objectives: The service/systemd modules, gathering facts (setup), and basic Jinja2 templates.
 
 
-Challenge 4: Automated Security (Handlers and Files)
+## Challenge 4: Automated Security (Handlers and Files)
 
 What to do: 
 
@@ -114,7 +117,7 @@ What to do:
 Objectives: The ufw module, copy or template modules, and using Handlers (notify) to trigger service restarts conditionally.
 
 
-Challenge 5: Clean Code with Roles
+## Challenge 5: Clean Code with Roles
 
 - What to do:
 
@@ -127,7 +130,7 @@ Challenge 5: Clean Code with Roles
 Objectives: Ansible directory layout, code reusability, and best practices for modular automation.
 
 
-Challenge 6: Protecting Sensitive Data with Ansible Vault
+## Challenge 6: Protecting Sensitive Data with Ansible Vault
 
 - What to do:
 
@@ -138,7 +141,7 @@ Challenge 6: Protecting Sensitive Data with Ansible Vault
 Objectives: Secret management, encryption with ansible-vault, and foundational GitOps security.
 
 
-Challenge 7: Orchestration and Conditionals (The Ultimate Challenge)
+## Challenge 7: Orchestration and Conditionals (The Ultimate Challenge)
 
 - What to do:
 
