@@ -1,0 +1,51 @@
+Script started on 2026-05-26 15:13:38+00:00 [TERM="linux" TTY="/dev/tty1" COLUMNS="160" LINES="50"]
+REDACTED@REDACTED:~/etc/ansible$ cats ./hosts
+[linux]
+server1 ansible_host=192.168.X.X
+server2 ansible_host=192.168.X.X
+
+[linux:vars]
+ansible_user=REDACTED
+ansible_password=REDACTED
+
+
+[webservers]
+server1 ansible_host=192.168.X.X
+
+[dbservers]
+server2 ansible_host=192.168.X.X
+REDACTED@REDACTED:~/etc/ansible$ ansible linux -i  ./hosts -m ping
+[WARNING]: Host 'server1' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+server1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+[WARNING]: Host 'server2' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+server2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.14"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+REDACTED@REDACTED:~/etc/ansible$ ansible linux -i ./hosts a 'df -h'
+[WARNING]: Host 'server1' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+server1 | CHANGED | rc=0 >>
+Filesystem                         Size  Used Avail Use% Mounted on
+tmpfs                              671M  1.5M  669M   1% /run
+/dev/mapper/ubuntu--vg-ubuntu--lv  9.8G  2.9G  6.4G  32% /
+tmpfs                              1.7G     0  1.7G   0% /dev/shm
+tmpfs                              1.7G  120K  1.7G   1% /tmp
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/sda2                          1.8G   96M  1.6G   6% /boot
+none                               1.0M     0  1.0M   0% /run/credentials/systemd-networkd.service
+none                               1.0M     0  1.0M   0% /run/credentials/getty@tty1.service
+tmpfs                              336M  8.0K  336M   1% /run/user/1000
+REDACTED@REDACTED:~/etc/ansible$ exit
+exit
+
+Script done on 2026-05-26 15:15:28+00:00 [COMMAND_EXIT_CODE="0"]
