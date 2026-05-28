@@ -1,0 +1,41 @@
+REDACTED@REDACTED:~/etc/ansible$ ansible-playbook -i ./hosts ./playbooks/system_init.yml
+PLAY [Initialize Systems] **************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+[WARNING]: Host 'server2' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+ok: [server2]
+[WARNING]: Host 'server1' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+ok: [server1]
+
+TASK [Update the apt cache] ************************************************************************************************************************************
+changed: [server1]
+changed: [server2]
+
+TASK [Update all packages] *************************************************************************************************************************************
+ok: [server1]
+ok: [server2]
+
+TASK [Install CURL] ********************************************************************************************************************************************
+ok: [server1]
+ok: [server2]
+
+TASK [Install GIT] *********************************************************************************************************************************************
+ok: [server2]
+ok: [server1]
+
+TASK [Install VIM] *********************************************************************************************************************************************
+ok: [server1]
+ok: [server2]
+
+TASK [Add a user with a specific shell] ************************************************************************************************************************
+ok: [server2]
+ok: [server1]
+
+PLAY RECAP *****************************************************************************************************************************************************
+server1                    : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+server2                    : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+REDACTED@REDACTED:~/etc/ansible$ exit
+exit
+
+Script done on 2026-05-28 16:18:54+00:00 [COMMAND_EXIT_CODE="0"]
