@@ -1,0 +1,38 @@
+Script started on 2026-05-30 19:15:05+00:00 [TERM="linux" TTY="/dev/tty1" COLUMNS="160" LINES="50"]
+REDACTED@REDACTED:~/etc/ansible$ ansible-playbook -i ./hosts ./playbooks/challenge-3.yml
+
+PLAY [Set up Web Server] ***************************************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************************
+[WARNING]: Host 'server1' is using the discovered Python interpreter at '/usr/bin/python3.14', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+ok: [server1]
+
+TASK [Install NGINX] *******************************************************************************************************************************************
+ok: [server1]
+
+TASK [Check if NGINX is running & running on boot] *************************************************************************************************************
+ok: [server1]
+
+TASK [Replace index.html by a template] ************************************************************************************************************************
+ok: [server1]
+
+PLAY RECAP *****************************************************************************************************************************************************
+server1                    : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+REDACTED@REDACTED:~/etc/ansible$ curl 192.168.X.X
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>NGINX Server</title>
+</head>
+<body>
+	<h1>Index Page</h1>
+	<p><strong>Hostname:</strong> sub1</p>
+	<p><strong>IP Address (IPv4):</strong> 192.168.X.X</p>
+</body></html>
+
+REDACTED@REDACTED:~/etc/ansible$ exit
+exit
+
+Script done on 2026-05-30 19:17:13+00:00 [COMMAND_EXIT_CODE="0"]

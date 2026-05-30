@@ -1,0 +1,24 @@
+---
+- name: Set up Web Server
+  hosts: webservers
+
+  tasks:
+  - name: Install NGINX
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+
+  - name: Check if NGINX is running & running on boot
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: true
+
+  - name: Replace index.html by a template
+    ansible.builtin.template:
+      src: ./new-index.html.j2
+      dest: /var/www/html/index.html
+      owner: www-data
+      group: www-data
+      mode: '0644'
+    become: yes
